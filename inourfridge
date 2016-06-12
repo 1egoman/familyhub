@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import RPi.GPIO as GPIO
 import time
 import ftplib
@@ -11,7 +12,7 @@ while True:
     input_state = GPIO.input(18)
     if input_state == False:
         os.system ("fswebcam --delay 1.5 -r 1920x1080 -S 20  --scale 960x540  --rotate 270 inourfri$
-        sftp = ftplib.FTP('soundproofdrywall.net','pi@soundproofdrywall.net','PASSWORD') # Connect
+        sftp = ftplib.FTP('HOST','USER','PASSWORD') # Connect
         fp = open('inourfridge.jpg') # file to send
         sftp.storbinary('STOR inourfridge.jpg', fp) # Send the file
         fp.close() # Close file and FTP
